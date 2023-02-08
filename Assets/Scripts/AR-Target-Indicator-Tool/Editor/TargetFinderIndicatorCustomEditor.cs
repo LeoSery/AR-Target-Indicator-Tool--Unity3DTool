@@ -1,3 +1,11 @@
+////////////////////////////////////////////////////////////////////////////////////
+// AR-Target-Indicator-Tool -- Léo Séry
+// ####
+// Script modifying the Unity3D GUI to display in a more organized way the Script component of the tool.
+// Script by Léo Séry - 08/02/2023
+// ####
+////////////////////////////////////////////////////////////////////////////////////
+
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +18,9 @@ public class TargetFinderIndicatorCustomEditor : Editor
     private SerializedProperty targetObjectProperty;
     private SerializedProperty cameraProperty;
     private SerializedProperty alwaysShowCursorProperty;
+    private SerializedProperty showHelpBoxProperty;
+    private SerializedProperty helpObjectProperty;
+    private SerializedProperty helpTextProperty;
 
     bool GameObjectsSection = true;
     bool OptionsSection = false;
@@ -22,6 +33,9 @@ public class TargetFinderIndicatorCustomEditor : Editor
         targetObjectProperty = serializedObject.FindProperty("targetObject");
         cameraProperty = serializedObject.FindProperty("Camera");
         alwaysShowCursorProperty = serializedObject.FindProperty("alwaysShowCursor");
+        showHelpBoxProperty = serializedObject.FindProperty("showHelpBox");
+        helpObjectProperty = serializedObject.FindProperty("helpBoxObject");
+        helpTextProperty = serializedObject.FindProperty("helpBoxText");
     }
     #endregion
 
@@ -33,17 +47,29 @@ public class TargetFinderIndicatorCustomEditor : Editor
         GameObjectsSection = EditorGUILayout.Foldout(GameObjectsSection, "GameObjects");
         if (GameObjectsSection)
         {
+            EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(targetIndicatorUIProperty);
             EditorGUILayout.PropertyField(targetObjectProperty);
             EditorGUILayout.PropertyField(cameraProperty);
             EditorGUILayout.EndFoldoutHeaderGroup();
+            EditorGUI.indentLevel--;
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
 
         OptionsSection = EditorGUILayout.Foldout(OptionsSection, "Options");
         if (OptionsSection)
         {
+            EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(alwaysShowCursorProperty);
+            EditorGUILayout.PropertyField(showHelpBoxProperty);
+            if (showHelpBoxProperty.boolValue)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(helpObjectProperty);
+                EditorGUILayout.PropertyField(helpTextProperty);
+                EditorGUI.indentLevel--;
+            }
+            EditorGUI.indentLevel--;
             EditorGUILayout.EndFoldoutHeaderGroup();
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
