@@ -17,7 +17,7 @@ This tool requires a version of Unity greater than or equal to [`Unity 2021.X`](
 
 ## How to install the tool in your project :
 
-Download the tool via this **UnityPackage**.
+Download the tool via this [**UnityPackage**.](https://github.com/LeoSery/AR-Target-Indicator-Tool--Unity3DTool/releases)
 
 Once downloaded, open Unity and drag it into your `project` window. Once the import window is open, select the `TargetFinderIndicator.cs` script. Make sure its Editor script (`...CustomEditor`) is also selected and click on `import`.
 
