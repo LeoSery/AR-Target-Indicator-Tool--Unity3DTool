@@ -12,6 +12,7 @@ using TMPro;
 
 public class TargetFinderIndicator : MonoBehaviour
 {
+    public Sprite[] targetSprites;
     public Image targetIndicatorUI;
     public GameObject targetObject;
     public GameObject helpBoxObject;
@@ -40,12 +41,21 @@ public class TargetFinderIndicator : MonoBehaviour
                 helpBoxObject.SetActive(false);
 
             if (!alwaysShowCursor)
+            {
+                targetIndicatorUI.sprite = targetSprites[0];
                 if (IsObjectInFieldOfView(targetObject))
                     targetIndicatorUI.enabled = false;
                 else
                     targetIndicatorUI.enabled = true;
+            }
             else
+            {
                 targetIndicatorUI.enabled = true;
+                if (IsObjectInFieldOfView(targetObject))
+                    targetIndicatorUI.sprite = targetSprites[1];
+                else
+                    targetIndicatorUI.sprite = targetSprites[0];
+            }
         }
     }
 

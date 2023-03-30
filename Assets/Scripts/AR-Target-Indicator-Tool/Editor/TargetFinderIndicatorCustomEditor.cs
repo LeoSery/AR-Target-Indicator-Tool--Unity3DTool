@@ -14,6 +14,7 @@ using UnityEditor;
 public class TargetFinderIndicatorCustomEditor : Editor
 {
     #region SerializedProperties
+    private SerializedProperty targetSpritesProperty;
     private SerializedProperty targetIndicatorUIProperty;
     private SerializedProperty targetObjectProperty;
     private SerializedProperty cameraProperty;
@@ -29,6 +30,7 @@ public class TargetFinderIndicatorCustomEditor : Editor
     #region OnEnable()
     private void OnEnable()
     {
+        targetSpritesProperty = serializedObject.FindProperty("targetSprites");
         targetIndicatorUIProperty = serializedObject.FindProperty("targetIndicatorUI");
         targetObjectProperty = serializedObject.FindProperty("targetObject");
         cameraProperty = serializedObject.FindProperty("Camera");
@@ -51,6 +53,7 @@ public class TargetFinderIndicatorCustomEditor : Editor
             EditorGUILayout.PropertyField(targetIndicatorUIProperty);
             EditorGUILayout.PropertyField(targetObjectProperty);
             EditorGUILayout.PropertyField(cameraProperty);
+            EditorGUILayout.PropertyField(targetSpritesProperty);
             EditorGUILayout.EndFoldoutHeaderGroup();
             EditorGUI.indentLevel--;
         }

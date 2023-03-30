@@ -2,6 +2,8 @@
 
 The **_AR-Target-Indicator-Tool_** for **_Unity3D_** allows you to display a marker on your UI to indicate where a predefined target is located.
 
+![](https://i.imgur.com/j5Bnf8c.gif)
+
 ## Contents :
 
 - **Introduction** of the tool.
@@ -44,6 +46,8 @@ Once the component is added on an object you have 2 categories:
 - **Options**
 
   - `Always Show Cursor` > By default the target indicator disappears when your target is in the field of view of the camera the tool is using, but by turning this option on you can choose to have the indicator always be visible and pointing at your target even if the object is already in your field of view.
+
+![](https://i.imgur.com/yaC8CzC.gif)
 
 ## Test the tool in the demo project :
 
