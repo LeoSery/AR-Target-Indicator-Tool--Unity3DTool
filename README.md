@@ -11,7 +11,7 @@ The **_AR-Target-Indicator-Tool_** for **_Unity3D_** allows you to display a mar
 - How to **configure the tool** for your project.
 - **Test the tool** in the demo project.
 
-## Présentation de l'outil :
+## Introduction of the tool :
 
 This tool will allow you to track a GameObject in your Unity3D scene. The tool will display an image on the UI that will move around the edges of the screen to indicate the position of the target object relative to the current camera position.
 
